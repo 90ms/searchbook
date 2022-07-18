@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:foregroundGravity="center"
+            app:cardBackgroundColor="#feffff"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@color/gray_060"
+            app:strokeWidth="0.5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="328dp"
+                android:paddingTop="24dp">
+
+                <TextView
+                    android:id="@+id/tv_dialog_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="24dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="타이틀 위치" />
+
+                <TextView
+                    android:id="@+id/tv_dialog_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_dialog_title"
+                    app:layout_goneMarginTop="0dp"
+                    tools:text="내용"
+                    tools:visibility="visible" />
+
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/gray_f8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_dialog_content" />
+
+                <TextView
+                    android:id="@+id/tv_dialog_negative"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toStartOf="@id/tv_dialog_positive"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_line"
+                    tools:text="아니오"
+                    tools:visibility="visible" />
+
+                <View
+                    android:id="@+id/view_line2"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/gray_f8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_dialog_content" />
+
+                <TextView
+                    android:id="@+id/tv_dialog_positive"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_dialog_negative"
+                    app:layout_constraintTop_toBottomOf="@id/view_line"
+                    app:layout_goneMarginBottom="10dp"
+                    app:layout_goneMarginTop="20dp"
+                    tools:text="예" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</layout>

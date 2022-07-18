@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.a90ms.searchbook.ui.detail.BookDetailViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    bindImage="@{vm.item.volumeInfo.imageLinks.thumbnail}"
+                    bindPlaceHolder="@{@drawable/ic_default_photo}"
+                    bindViewModel="@{vm}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@color/gray_f8"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_default_photo" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/mtb_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="top"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_icon_action_back"
+                    app:title="@{vm.item.volumeInfo.title}" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/expandedAppBarHeight">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/guideStart" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/guideStart" />
+
+                <TextView
+                    android:id="@+id/tv_title_description"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/tv_detail_title"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="상세정보" />
+
+                <TextView
+                    android:id="@+id/tv_web_link"
+                    style="@style/TextAppearance.AppCompat.Body2"
+                    bindSingleClick="@{() -> vm.onClickLink(vm.item.volumeInfo.previewLink)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/link_web"
+                    android:textColor="@color/purple_700"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title_description"
+                    app:layout_constraintStart_toEndOf="@id/tv_title_description"
+                    app:layout_constraintTop_toTopOf="@id/tv_title_description"
+                    tools:text="(웹으로 보기)" />
+
+                <TextView
+                    android:id="@+id/tv_title_book"
+                    style="@style/CaptionTitle"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/info_title"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_description" />
+
+                <TextView
+                    android:id="@+id/tv_title_publisher"
+                    style="@style/CaptionTitle"
+                    android:text="@string/info_publisher"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_book_title" />
+
+                <TextView
+                    android:id="@+id/tv_title_published_date"
+                    style="@style/CaptionTitle"
+                    android:text="@string/info_published_date"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_publisher" />
+
+                <TextView
+                    android:id="@+id/tv_subtitle"
+                    style="@style/CaptionTitle"
+                    android:text="@string/info_description"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_published_date" />
+
+                <TextView
+                    android:id="@+id/tv_buy_link_title"
+                    style="@style/CaptionTitle"
+                    android:text="@string/info_buy_link"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+                <TextView
+                    android:id="@+id/tv_ebook_title"
+                    style="@style/CaptionTitle"
+                    android:text="@string/info_ebook"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_buy_link" />
+
+                <TextView
+                    android:id="@+id/tv_pdf_title"
+                    style="@style/CaptionTitle"
+                    android:text="@string/info_pdf"
+                    app:layout_constraintStart_toStartOf="@id/guide_start"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ebook_link" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="end"
+                    app:barrierMargin="26dp"
+                    app:constraint_referenced_ids="tv_title_book,tv_title_publisher,tv_buy_link_title, tv_subtitle" />
+
+                <TextView
+                    android:id="@+id/tv_book_title"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindTextEmptyCheck="@{vm.item.volumeInfo.title}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_title_book"
+                    tools:text="2021 어느날" />
+
+                <TextView
+                    android:id="@+id/tv_publisher"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindTextEmptyCheck="@{vm.item.volumeInfo.publisher}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_title_publisher"
+                    tools:text="출판사" />
+
+                <TextView
+                    android:id="@+id/tv_published_date"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindTextEmptyCheck="@{vm.item.volumeInfo.publishedDate}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_title_published_date"
+                    tools:text="출판일" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindTextEmptyCheck="@{vm.item.volumeInfo.description}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/guide_end"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_subtitle"
+                    tools:text="123123123123123123123123123123123123123123123123123" />
+
+                <TextView
+                    android:id="@+id/tv_buy_link"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindIsLink="@{true}"
+                    bindSingleClick="@{() -> vm.onClickLink(vm.item.saleInfo.buyLink)}"
+                    bindTextEmptyCheck="@{vm.item.saleInfo.buyLink}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_arrow"
+                    android:drawablePadding="22dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:layout_constraintEnd_toEndOf="@id/guide_end"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_buy_link_title"
+                    tools:text="구매링크" />
+
+                <TextView
+                    android:id="@+id/tv_ebook_link"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindIsLink="@{true}"
+                    bindSingleClick="@{() -> vm.onClickLink(vm.item.accessInfo.webReaderLink)}"
+                    bindTextEmptyCheck="@{vm.item.accessInfo.webReaderLink}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_arrow"
+                    android:drawablePadding="22dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:layout_constraintEnd_toEndOf="@id/guide_end"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_ebook_title"
+                    tools:text="E-book링크" />
+
+                <TextView
+                    android:id="@+id/tv_pdf_link"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    bindIsLink="@{true}"
+                    bindSingleClick="@{() -> vm.onClickLink(vm.item.accessInfo.pdf.acsTokenLink)}"
+                    bindTextEmptyCheck="@{vm.item.accessInfo.pdf.acsTokenLink}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_arrow"
+                    android:drawablePadding="22dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:layout_constraintEnd_toEndOf="@id/guide_end"
+                    app:layout_constraintStart_toStartOf="@id/barrier_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_pdf_title"
+                    tools:text="PDF링크" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/sr_stroke_all6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_pdf_link">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:onClick="@{() -> vm.onClickExpand()}"
+                        android:text="@string/info_all"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="데이터 전체보기" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:rotation="@{vm.expanded? 90 : 0}"
+                        android:src="@drawable/ic_arrow"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_title"
+                        app:tint="#c6c9ce" />
+
+                    <TextView
+                        bindVisible="@{vm.expanded}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="18dp"
+                        android:text="@{vm.item.toString()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title"
+                        tools:text="전체 정보" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@{vm.item.toString()}"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_pdf_link"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

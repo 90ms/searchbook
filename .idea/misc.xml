@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.30015197568389057" />
+        <entry key="app/src/main/res/drawable/back_h_24_gray.xml" value="0.338" />
+        <entry key="app/src/main/res/drawable/back_h_24_white.xml" value="0.3545" />
+        <entry key="app/src/main/res/drawable/ic_arrow_h_9.xml" value="0.338" />
+        <entry key="app/src/main/res/drawable/ic_default_photo.xml" value="0.275" />
+        <entry key="app/src/main/res/drawable/ic_icon_action_back.xml" value="0.275" />
+        <entry key="app/src/main/res/drawable/ic_icon_action_back_h_24.xml" value="0.346" />
+        <entry key="app/src/main/res/drawable/ic_icon_action_delete.xml" value="0.1925" />
+        <entry key="app/src/main/res/drawable/ic_icon_action_delete_h_16.xml" value="0.4355" />
+        <entry key="app/src/main/res/drawable/ic_img_icon_default_photo_h_88.xml" value="0.4355" />
+        <entry key="app/src/main/res/drawable/ic_search_h_16.xml" value="0.4355" />
+        <entry key="app/src/main/res/drawable/sr_blackalpha30_all8.xml" value="0.3545" />
+        <entry key="app/src/main/res/drawable/sr_gradient_000000_00a6a6a6.xml" value="0.338" />
+        <entry key="app/src/main/res/drawable/sr_gray74_all6.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/sr_gray_060_all6.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/sr_grayf8_all6.xml" value="0.3545" />
+        <entry key="app/src/main/res/drawable/sr_page.xml" value="0.235" />
+        <entry key="app/src/main/res/drawable/sr_stroke_all6.xml" value="0.338" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.35588226318359373" />
+        <entry key="app/src/main/res/layout/activity_detail2.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33584195672624645" />
+        <entry key="app/src/main/res/layout/dialog_common.xml" value="0.5911458333333334" />
+        <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.5828924162257496" />
+        <entry key="app/src/main/res/layout/item_book.xml" value="0.5748717948717949" />
+        <entry key="app/src/main/res/layout/item_book2.xml" value="0.5911458333333334" />
+        <entry key="app/src/main/res/layout/item_image.xml" value="0.4401041666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

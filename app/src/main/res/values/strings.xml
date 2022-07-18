@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">도서 검색</string>
+
+    <string name="txt_change_theme">테마 변경</string>
+    <string name="description_scroll_top">scroll_top</string>
+    <string name="text_empty">검색결과가 없습니다.</string>
+    <string name="text_search">검색</string>
+    <string name="edit_hint_search">검색어를 입력하세요.</string>
+    <string name="text_pdf">pdf</string>
+
+    <string name="dialog_title_finish">종료하시겠습니까?</string>
+    <string name="dialog_no">아니요</string>
+    <string name="dialog_yes">네</string>
+
+    <string name="toast_empty_search">검색어를 입력해 주세요.</string>
+    <string name="toast_search_error">1자 이상 입력해 주세요.</string>
+    <string name="tv_detail_title">도서 상세정보</string>
+
+    <string name="info_title">도서명</string>
+    <string name="info_publisher">출판사</string>
+    <string name="info_published_date">출판일</string>
+    <string name="info_description">요약</string>
+    <string name="info_buy_link">구매링크</string>
+    <string name="info_ebook">E-Book 링크</string>
+    <string name="info_pdf">PDF 링크</string>
+    <string name="empty_link">연결정보가 없습니다.</string>
+    <string name="info_all">데이터 전체보기</string>
+    <string name="link_web">(웹으로 보기)</string>
+</resources>

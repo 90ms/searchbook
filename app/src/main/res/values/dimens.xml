@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="guideStart">16dp</dimen>
+    <dimen name="guideEnd">16dp</dimen>
+
+    <dimen name="expandedAppBarHeight">112dp</dimen>
+</resources>
