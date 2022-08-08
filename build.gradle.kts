@@ -1,3 +1,5 @@
+import java.net.URI
+
 buildscript {
     extra.apply {
         set("kotlin_version", "1.7.0")
@@ -20,6 +22,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url = URI("https://jitpack.io") }
     }
 }
 

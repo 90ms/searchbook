@@ -74,6 +74,8 @@ dependencies {
     // lottie
     implementation("com.airbnb.android:lottie:4.0.0")
 
+    implementation("com.github.90ms:MS_Toast:1.0.0-beta.1")
+
     // test
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")

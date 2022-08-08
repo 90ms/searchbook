@@ -10,6 +10,7 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.a90ms.mstoast.msToast
 import com.a90ms.searchbook.BR
 import com.a90ms.searchbook.R
 import com.a90ms.searchbook.base.BaseActivity
@@ -51,8 +52,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     is MainState.OnUpdateList -> lifecycleScope.launch {
                         pagingAdapter.submitData(it.pagingData)
                     }
-                    is MainState.OnError -> toast(it.msg)
-                    MainState.OnScrollTop -> binding.rvBook.scrollToPosition(0)
+                    is MainState.OnError -> {
+                        msToast(it.msg)
+                    }
+                    MainState.OnScrollTop -> {
+                        msToast("최 상단으로 이동",1000)
+                        binding.rvBook.scrollToPosition(0)
+                    }
                     is MainState.OnClickItem -> {
                         startActivity<BookDetailActivity>(
                             BookDetailActivity.createBundle(it.item)
